@@ -3,37 +3,21 @@ import numpy as np
 import pygad
 from ollama import llm
 
-# TODO: Generic algorithm
-
-#example
+# example
 llm("I am an example replace me with your string")
-
-
-
-
-# TODO: Selection criteria
-
-
-
-# TODO: Crossover criteria
-
-
-
-# TODO: Mutation criteria
-
-
-# TODO: Implement fitness fucntion for GA here
 
 function_inputs = [4, -2, 3.5, 5, -11, -4.7]
 desired_output = 44
 
 
+# Fitness function
 def fitness_func(ga_instance, solution, solution_idx):
     output = np.sum(solution * function_inputs)
     fitness = 1.0 / np.abs(output - desired_output)
     return fitness
 
 
+# Params for GA
 fitness_function = fitness_func
 
 num_generations = 50
@@ -53,6 +37,7 @@ crossover_type = "single_point"
 mutation_type = "random"
 mutation_percent_genes = 10
 
+# Create an instance of the GA class
 ga_instance = pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
                        fitness_func=fitness_function,
@@ -74,6 +59,3 @@ print("Fitness value of the best solution = {solution_fitness}".format(solution_
 
 prediction = np.sum(np.array(function_inputs) * solution)
 print("Predicted output based on the best solution : {prediction}".format(prediction=prediction))
-
-
-
