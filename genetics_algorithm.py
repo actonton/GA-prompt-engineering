@@ -2,6 +2,7 @@ import random as rand
 import numpy as np
 import pygad
 from ollama import llm
+from wonderwords import RandomWord
 
 # TODO: Generic algorithm
 
@@ -9,9 +10,18 @@ from ollama import llm
 llm("I am an example replace me with your string")
 
 
+# generating initial prompt
+#takes in data an array of words
+# def generate_initial(data):
+#     input = ', '.join(data)
+#     generated_words = []
+#     r = RandomWord()
+#     r.word()
+#     return generated_sentence
 
 
-# TODO: Selection criteria
+
+   
 
 
 
@@ -45,13 +55,15 @@ num_genes = len(function_inputs)
 init_range_low = -2
 init_range_high = 5
 
-parent_selection_type = "sss"
+parent_selection_type = "tournament"
 keep_parents = 1
 
 crossover_type = "single_point"
 
 mutation_type = "random"
 mutation_percent_genes = 10
+
+
 
 ga_instance = pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
