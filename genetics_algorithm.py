@@ -10,17 +10,11 @@ llm("I am an example replace me with your string")
 
 # generating initial prompt
 #takes in data an array of words
-# def generate_initial(data):
-#     input = ', '.join(data)
-#     generated_words = []
-#     r = RandomWord()
-#     r.word()
-#     return generated_sentence
-
-
-
-   
-
+def generate_initial(initial_words\):
+    r = RandomWord()
+    additional_words = [r.word(include_parts_of_speech=["adjectives"]) for _ in range(len(initial_words))]  
+    initial_prompt = ', '.join(initial_words + additional_words)
+    return initial_prompt
 
 
 # TODO: Crossover criteria
