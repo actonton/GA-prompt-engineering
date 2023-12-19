@@ -1,1 +1,0 @@
-# TODO: Implement fitness fucntion for GA here
