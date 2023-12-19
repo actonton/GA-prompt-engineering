@@ -10,7 +10,7 @@ llm("I am an example replace me with your string")
 
 # generating initial prompt
 #takes in data an array of words
-def generate_initial(initial_words\):
+def generate_initial(initial_words):
     r = RandomWord()
     additional_words = [r.word(include_parts_of_speech=["adjectives"]) for _ in range(len(initial_words))]  
     initial_prompt = ', '.join(initial_words + additional_words)
