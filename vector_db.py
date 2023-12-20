@@ -15,7 +15,7 @@ class_obj = {
 }
 
 #RUN ONLY ONCE
-def Initialize_db(t):
+def Initialize_db():
     client.schema.create_class(class_obj)
     data = json.loads(file_contents)
 
