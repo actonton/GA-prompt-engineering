@@ -2,19 +2,9 @@ import random as rand
 import numpy as np
 import pygad
 from ollama import llm
-from wonderwords import RandomWord
 
 # example
 llm("I am an example replace me with your string")
-
-
-# generating initial prompt
-#takes in data an array of words
-def generate_initial(initial_words):
-    r = RandomWord()
-    additional_words = [r.word(include_parts_of_speech=["adjectives"]) for _ in range(len(initial_words))]  
-    initial_prompt = ', '.join(initial_words + additional_words)
-    return initial_prompt
 
 
 # TODO: Crossover criteria
