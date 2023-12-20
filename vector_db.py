@@ -1,6 +1,4 @@
 import weaviate
-from langchain.vectorstores import Weaviate
-from langchain.vectorstores.docarray import DocArrayHnswSearch
 from csv_to_json import file_contents, filtered_movies, documents
 import json
 
