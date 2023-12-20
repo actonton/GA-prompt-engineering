@@ -1,11 +1,10 @@
 import weaviate
 from langchain.vectorstores import Weaviate
 from langchain.vectorstores.docarray import DocArrayHnswSearch
-from ollama import embeddings
 from csv_to_json import file_contents, filtered_movies, documents
 import json
 
-weaviate_client = weaviate.Client(
+client = weaviate.Client(
     url="http://localhost:8080",
 )
 
@@ -18,7 +17,7 @@ class_obj = {
 }
 
 #RUN ONLY ONCE
-def Initialize_db(client):
+def Initialize_db(t):
     client.schema.create_class(class_obj)
     data = json.loads(file_contents)
 
@@ -43,19 +42,17 @@ def Initialize_db(client):
                 class_name="Movie"
             )
 
-def get_schema_definition(client):
+def get_schema_definition():
     return json.dumps( client.schema.get(), indent=2)
 
-def get_movie_count(client):
+def get_movie_count():
     return json.dumps(client.query.aggregate("Movie").with_meta_count().do(), indent=2)
 
-def query_db(client, query):
-    return json.dumps(  client.query.get("Movie", ["names", "score", "overview"]).with_near_text({"concepts": [query]}).with_limit(10).do(), indent=2)
+def query_db( query, number_of_results):
+    return json.dumps(  client.query.get("Movie", [ "score"]).with_near_text({"concepts": [query]}).with_limit(number_of_results).do(), indent=2)
 
-def delete_all(client):
+def delete_all():
     client.schema.delete_class("Movie")
-
-
 
 
 
