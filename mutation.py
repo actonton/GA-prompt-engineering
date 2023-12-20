@@ -14,5 +14,5 @@ def mutation(prompt, mutation_rate):
 
     return ' '.join(prompt_array)
 
-print(mutation("Movie Batman, Omega Shadow", 0.2))
+# print(mutation("Movie Batman, Omega Shadow", 0.2))
 

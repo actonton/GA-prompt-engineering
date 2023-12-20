@@ -15,4 +15,4 @@ def selection(prompts_array, number_of_prompts_to_select):
             selected_prompts.append(picked_prompt)
     return selected_prompts
 
-print(selection(["Movie Batman", "Movie Mafia", "King Lear Movie"], 1))
+# print(selection(["Movie Batman", "Movie Mafia", "King Lear Movie"], 1))
