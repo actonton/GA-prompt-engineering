@@ -22,13 +22,16 @@ embeddings = OllamaEmbeddings(model="orca-mini")
 def generate_words():
     random_array = []
 
-    for _ in range(0, 50):
+    for _ in range(0, 1):
         temp = []
-        for _ in range(0, 10):
+        for _ in range(0, 1):
             temp.append(RandomWord().word())
         random_array.append(temp)
+    print(random_array)
 
-    prompts_array = [llm(f"I want a movie like {str(random_array)}") for _ in range(0, 1)]
+    genre = RandomWord().word()
+    print(genre)
+    prompts_array = [llm(f"I want a movie like {str(random_array)} from a genre {genre} which I want to watch") for _ in range(0, 1)]
 
     print(prompts_array)
 
