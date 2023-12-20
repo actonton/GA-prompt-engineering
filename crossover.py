@@ -1,5 +1,6 @@
 import random
 
+# Single-point crossover
 def crossover(p1, p2, r_cross):
     # check for recombination
     if random.random() < r_cross:
