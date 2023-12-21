@@ -7,6 +7,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import Weaviate
 from wonderwords import RandomWord
 import asyncio
+import random
 
 llm = Ollama(model="orca-mini")
 embeddings = OllamaEmbeddings(model="orca-mini")
@@ -21,17 +22,40 @@ embeddings = OllamaEmbeddings(model="orca-mini")
 
 def generate_words():
     random_array = []
-
+    genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Horror",
+    "Science Fiction (Sci-Fi)",
+    "Fantasy",
+    "Mystery",
+    "Thriller",
+    "Crime",
+    "Romance",
+    "Musical",
+    "Historical",
+    "Biography",
+    "War",
+    "Western",
+    "Animation",
+    "Family",
+    "Documentary",
+    "Experimental/Art House",
+    "Mockumentary",
+    "Sports",
+    "Superhero",
+    "Political",
+    "Romantic Comedy (Rom-Com)"
+]
     for _ in range(0, 1):
         temp = []
         for _ in range(0, 1):
             temp.append(RandomWord().word())
         random_array.append(temp)
     print(random_array)
-
-    genre = RandomWord().word()
-    print(genre)
-    prompts_array = [llm(f"I want a movie like {str(random_array)} from a genre {genre} which I want to watch") for _ in range(0, 1)]
+    prompts_array = [llm(f"I want a movie name that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to watch") for _ in range(0, 1)]
 
     print(prompts_array)
 
