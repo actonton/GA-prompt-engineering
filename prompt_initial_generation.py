@@ -27,12 +27,16 @@ def generate_prompt(initial_words, target_output):
         word_from_initial_words_to_compare_against = initial_words[randint(0,len(initial_words) -1)]
         if measure_difference(potential_word, word_from_initial_words_to_compare_against) > 0.5:
             additional_words.append(potential_word)
-    additional_words = ' '.join(additional_words)
-    initial_prompt = ', '.join(initial_words + additional_words)
+    initial_words = initial_words.split()
+    #additional_words = ' '.join(additional_words)
+    initial_prompt = initial_words + additional_words
+    initial_prompt = ' '.join(initial_prompt)
+    #initial_prompt = ' '.join(initial_words + additional_words)
    # best_result = best_prompt(target_output, initial_prompt, target_scores)
     return initial_prompt
 
 def generate_generation_0(initial_words, number_of_prompts):
+
     return [ generate_prompt(initial_words, "stuff") for i in range(number_of_prompts)]
 
 
