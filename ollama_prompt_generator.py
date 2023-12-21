@@ -14,6 +14,10 @@ llm = Ollama(model="orca-mini")
 embeddings = OllamaEmbeddings(model="orca-mini")
 
 
+def batch_query_ollama(batch_of_prompts):
+    return llm.batch(batch_of_prompts)
+
+
 
 # Ollama Embeddings creation demo
 # sample_text = "This is an example text to turn into a vector"
@@ -56,7 +60,8 @@ def ollama_generation():
             temp.append(RandomWord().word())
         random_array.append(temp)
 
-    movie_info = llm(f"I want a movie idea that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to produce")
+    #movie_info = llm(f"I want a movie idea that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to produce")
+    movie_info = f"I want a movie idea that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to produce"
 
     # Extracting only the title using regular expression
     # match = re.search(r'"([^"]+)"', movie_info)
