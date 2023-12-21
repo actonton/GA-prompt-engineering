@@ -35,8 +35,8 @@ def generate_generation_0(initial_words, number_of_prompts):
     return [ generate_prompt(initial_words, "stuff") for i in range(number_of_prompts)  ]
 
 
-target_output = 'simple, lively, strong'
-initial_words = ['I', 'want', 'a', 'movie', 'like', 'your', 'mum']
-#print(generate_initial(initial_words, target_output))
+# target_output = 'simple, lively, strong'
+# initial_words = ['I', 'want', 'a', 'movie', 'like', 'your', 'mum']
+# #print(generate_initial(initial_words, target_output))
 
-print(generate_generation_0(initial_words, 10))
+# print(generate_generation_0(initial_words, 10))
