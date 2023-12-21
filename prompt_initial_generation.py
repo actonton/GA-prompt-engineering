@@ -1,9 +1,9 @@
 from random import randint
 from wonderwords import RandomWord
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from ollama import llm
 
 sentimentAnalyzer = SentimentIntensityAnalyzer()
+target_output = ollama_generation()
 
 def measure_difference(word_a,  word_b):
     output_scores = sentimentAnalyzer.polarity_scores(word_a)
@@ -32,10 +32,10 @@ def generate_prompt(initial_words, target_output):
     return initial_prompt
 
 def generate_generation_0(initial_words, number_of_prompts):
-    return [ generate_prompt(initial_words, "stuff") for i in range(number_of_prompts)  ]
+    return [ generate_prompt(initial_words, "stuff") for i in range(number_of_prompts)]
 
 
-# target_output = 'simple, lively, strong'
+
 # initial_words = ['I', 'want', 'a', 'movie', 'like', 'your', 'mum']
 # #print(generate_initial(initial_words, target_output))
 

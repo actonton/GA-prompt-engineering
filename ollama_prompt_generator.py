@@ -20,7 +20,7 @@ embeddings = OllamaEmbeddings(model="orca-mini")
 # print(query_result)
 
 
-def generate_words():
+def ollama_generation():
     random_array = []
     genres = [
     "Action",
@@ -58,9 +58,8 @@ def generate_words():
     prompts_array = [llm(f"I want a movie name that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to watch") for _ in range(0, 1)]
 
     print(prompts_array)
+    return prompts_array
 
-if __name__ == '__main__':
-    generate_words()
 
 
 

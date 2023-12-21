@@ -2,6 +2,7 @@ from selection import selection
 from crossover import crossover
 from mutation import mutation
 from prompt_initial_generation import *
+from ollama import *
 import random
 
 def generate_generation_0(initial_words, extra_info):
