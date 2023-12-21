@@ -10,4 +10,6 @@ def query_server(initial_words, target_score):
     print(response.json())
 
 
+query_server("I want a movie that is cool and fun!", 55)
+
 

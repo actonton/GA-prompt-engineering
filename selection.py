@@ -8,7 +8,7 @@ def selection(prompts_array, number_of_prompts_to_select):
     best_score = fitness(prompts_array[best_prompt], number_of_prompts_to_select)
     selected_prompts = [prompts_array[best_prompt]]
     for i in range(0, number_of_prompts_to_select):
-        picked_prompt = prompts_array[randint(0, len(prompts_array))]
+        picked_prompt = prompts_array[randint(0, len(prompts_array)-1)]
         picked_prompt_fitness =  fitness(picked_prompt, number_of_prompts_to_select)
         if picked_prompt_fitness> best_score:
             best_score = picked_prompt_fitness

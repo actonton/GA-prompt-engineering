@@ -1,7 +1,8 @@
+import json
 import os
 from pyhypercycle_aim import SimpleServer, JSONResponseCORS, aim_uri
 
-from genetic_algorithm import GeneticAlgorithm
+#from genetic_algorithm import GeneticAlgorithm
 
 PORT = os.environ.get("PORT", 4002)
 SERVER_ENDPOINT = 'http://localhost:4002'
@@ -40,9 +41,11 @@ class GeneticExample(SimpleServer):
 
 
         # perform the genetic algorithm search
-        genetic_algorithm_results = GeneticAlgorithm.genetic_algorithm(initial_words, target_score)
-        return JSONResponseCORS({"target_score": target_score, "initial_words": initial_words, "resulting_prompt": genetic_algorithm_results["best_prompt"], "resulting_score": genetic_algorithm_results["best_score"]})
-
+        #genetic_algorithm_results = GeneticAlgorithm.genetic_algorithm(initial_words, target_score)
+        demo_result = "Billy goes to hell to fight demons and meet a succubus!"
+        genetic_algorithm_results =json.loads('{ "resulting_score":"Billy goes to hell to fight demons and meet a succubus", "resulting_score":99}')
+        #return JSONResponseCORS({"target_score": target_score, "initial_words": initial_words, "resulting_prompt": genetic_algorithm_results["best_prompt"], "resulting_score": genetic_algorithm_results["best_score"]})
+        return JSONResponseCORS({"target_score": target_score, "initial_words": initial_words, "resulting_prompt": "Billy goes to hell to fight demons", "resulting_score": "99"})
 
 def main():
     # example usage:

@@ -53,4 +53,8 @@ def delete_all():
     client.schema.delete_class("Movie")
 
 
+def test_query(query, number_of_results):
+    return json.dumps(  client.query.get("Movie", [ "score"]).with_near_text({"concepts": [query]}).with_limit(number_of_results).with_additional(["id vector"]).do(), indent=2)
+
+
 
