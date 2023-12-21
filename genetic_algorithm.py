@@ -15,7 +15,6 @@ def genetic_algorithm(initial_words, number_of_prompts, number_of_prompts_to_sel
     population = generate_generation_0(initial_words, number_of_prompts)
     selected_prompts = selection(population, number_of_prompts_to_select)
     print(population)
-    print(selected_prompts)
     new_population = []
     for i in range(0, len(selected_prompts), 2):
         child1, child2 = crossover(selected_prompts[random.randint(0, len(selected_prompts) - 1)], selected_prompts[random.randint(0, len(selected_prompts) - 1)], crossover_rate)

@@ -14,4 +14,4 @@ def crossover(p1, p2, r_cross):
         c1, c2 = p1[:], p2[:]
     return c1, c2
 
-# print(crossover(["Hi", "Bye", "Good", "Bad"], ["Hello", "World", "Open", "Mesh"], 0.9))
+print(crossover(["Hi", "Bye", "Good", "Bad"], ["Hello", "World", "Open", "Mesh"], 0.9))
