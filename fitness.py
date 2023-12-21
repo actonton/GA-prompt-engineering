@@ -1,4 +1,4 @@
-from ollama import llm
+from ollama_prompt_generator import *
 from vector_db import query_db
 from average_similar_movie_scores import average_similar_movie_scores
 

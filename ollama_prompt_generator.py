@@ -8,6 +8,7 @@ from langchain.vectorstores import Weaviate
 from wonderwords import RandomWord
 import asyncio
 import random
+import re
 
 llm = Ollama(model="orca-mini")
 embeddings = OllamaEmbeddings(model="orca-mini")
@@ -49,17 +50,23 @@ def ollama_generation():
     "Political",
     "Romantic Comedy (Rom-Com)"
 ]
-    for _ in range(0, 1):
+    for _ in range(1):
         temp = []
-        for _ in range(0, 1):
+        for _ in range(1):
             temp.append(RandomWord().word())
         random_array.append(temp)
-    print(random_array)
-    prompts_array = [llm(f"I want a movie name that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to watch") for _ in range(0, 1)]
 
-    print(prompts_array)
-    return prompts_array
+    movie_info = llm(f"I want a movie idea that has features like {str(random_array)} from a {genres[random.randint(0, len(genres) - 1)]} which I want to produce")
 
+    # Extracting only the title using regular expression
+    # match = re.search(r'"([^"]+)"', movie_info)
+    # title = match.group(1) if match else None
+
+    return movie_info
+
+# Example usage:
+# movie_info = ollama_generation()
+# print("Movie information:", movie_info)
 
 
 
