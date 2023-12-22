@@ -5,23 +5,6 @@ file = 'imdb_movies.csv'
 json_file = 'imdb_movies.json'
 
 
-# # Transform json input to python objects
-# input_dict = json.loads(file_contents)
-
-# # # Filter python objects with list comprehensions
-# output_dict = [x for x in input_dict if float(x['score']) >= 90.0]
-
-# # Transform python object back into json
-# #output_json = json.dumps(output_dict)
-
-# # print(output_json)
-
-# with open("filtered_movies.json", "w") as data_file:
-#     json.dump(output_dict, data_file)
-
-#Prep to Ingest the csv into the vector database as json objects
-#Run only if no json exists
-
 #Read CSV File
 def read_CSV(file, json_file):
     csv_rows = []
@@ -40,7 +23,6 @@ def convert_write_json(data, json_file):
 
 
 #read_CSV(file,json_file)
-
 
 with open('./data/imdb_movies.json') as user_file:
   file_contents = user_file.read()
