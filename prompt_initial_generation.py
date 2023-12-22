@@ -1,10 +1,10 @@
 from random import randint
 from wonderwords import RandomWord
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from ollama_prompt_generator import ollama_generation
+# from ollama import ollama_generation
 
 sentimentAnalyzer = SentimentIntensityAnalyzer()
-target_output = ollama_generation()
+# target_output = ollama_generation()
 
 def measure_difference(word_a,  word_b):
     output_scores = sentimentAnalyzer.polarity_scores(word_a)

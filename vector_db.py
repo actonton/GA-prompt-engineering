@@ -47,6 +47,7 @@ def get_movie_count():
     return json.dumps(client.query.aggregate("Movie").with_meta_count().do(), indent=2)
 
 def query_db( query, number_of_results):
+    print("Querying DB")
     return json.dumps(  client.query.get("Movie", [ "score"]).with_near_text({"concepts": [query]}).with_limit(number_of_results).do(), indent=2)
 
 def delete_all():
@@ -54,7 +55,6 @@ def delete_all():
 
 
 def test_query(query, number_of_results):
-    return json.dumps(  client.query.get("Movie", [ "score"]).with_near_text({"concepts": [query]}).with_limit(number_of_results).with_additional(["id vector"]).do(), indent=2)
-
+    return json.dumps(  client.query.get("Movie", [ "score"]).with_near_text({"concepts": [query]}).with_limit(number_of_results).do(), indent=2)
 
 

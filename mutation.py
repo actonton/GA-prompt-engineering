@@ -3,6 +3,7 @@ from wonderwords import RandomWord
 import random
 
 def mutation(prompt, mutation_rate):
+    print("Running Mutation")
     prompt_array = prompt.split()
 
     for index  in range(len(prompt_array)):
