@@ -46,6 +46,6 @@ def query_server(initial_words, genre):
     if genre == "":
         genre = random_genre()
 
-    return requests.post(SERVER_ENDPOINT + '/prompt', json={"initial_words": parse_query(initial_words)})
+    return requests.post(SERVER_ENDPOINT + '/prompt', json={"initial_words": str(parse_query(initial_words))})
 
 print(query_server("happy joyful","").json())
